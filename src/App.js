@@ -12,21 +12,27 @@ import './App.css';
 function App() {
   return (
     <div className="App">
-        <Container>
-          <Grid container>
-            <Grid item xs={12} sm={12} md={4} lg={3} >
-              <Profile />
-            </Grid>
-            <Grid item xs>
-              <Header />
-              <Router>
-                <Portfolio />
-                <Resume />
-              </Router>
-              <Footer />
-            </Grid>
+      <Container>
+        <Grid container>
+          <Grid item xs={12} sm={12} md={4} lg={3} >
+            <Profile />
           </Grid>
-        </Container>
+          <Grid item xs>
+            <Header />
+            <Router>
+              <Switch>
+                <Route path="/portfolio">
+                  <Portfolio />
+                </Route>
+                <Route path="/">
+                  <Resume />
+                </Route>
+              </Switch>
+            </Router>
+            <Footer />
+          </Grid>
+        </Grid>
+      </Container>
     </div>
   );
 }
